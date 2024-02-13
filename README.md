@@ -33,3 +33,9 @@ pip install -r requirements.txt
 ```bash
 python manage.py runserver
 ```
+
+## Project Documentation
+
+The documentation can be found here:
+
+[Documentation](/docs/project_documentation.md)
