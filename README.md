@@ -1,6 +1,14 @@
 # ResumeHub
 
-Create and share your resume.
+Creating, updating and sharing your resume with various companies can be a tedious task. ResumeHub simplifies this process by letting you easily set your:
+
+- Educational Qualifications
+- Work Experience
+- Achievements
+- Skills
+- Hobbies
+
+Following this your resume is generated to be shared with companies as a link or an email attachment.
 
 ## Instructions
 
