@@ -9,7 +9,7 @@ The problem at hand involves streamlining the recruitment process for both candi
 By creating a centralized hub for job seekers and employers to interact and exchange information, **ResumeHub** seeks to simplify the job search process and facilitate successful job placements.
 
 
-#Competitors
+# Competitors
 
 When assessing potential competitors for our web development project, it is imperative to explore platforms that offer analogous features and services. Here, we present three notable competitors in the market that have likely influenced the conceptualization of our idea:
 
