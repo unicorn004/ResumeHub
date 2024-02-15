@@ -6,7 +6,19 @@ Creating, updating and sharing your resume with various companies can be a tedio
 - Work Experience
 - Achievements
 - Skills
+    - uuid
+    - name
+    - slug
+    - type
+        - soft skill
+        - technical skill
+        - programming language
+    - description
+
 - Hobbies
+    - uuid
+    - name
+    - slug
 
 Following this your resume is generated to be shared with companies as a link or an email attachment.
 
