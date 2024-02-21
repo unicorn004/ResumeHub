@@ -20,31 +20,50 @@ class Skill(models.Model):
         (SOFT, 'Soft Skill')
     ]
 
+    PROGRAMMING_LANGUAGE = 'programming_language'
+    FRAMEWORKS = 'frameworks'
+    VERSION_CONTROL = 'version_control'
+    METHODOLOGIES = 'methodologies'
+    DATA_ANALYSIS = 'data_analysis'
+    IT_NETWORKING = 'it_networking'
+    WEB_DEV_DESIGN = 'web_dev_design'
+    AI_ML = 'ai_ml'
+    DBMS = 'dbms'
+    CLOUD_COMPUTING = 'cloud_computing'
+
+    TEAM_MANAGEMENT = 'team_management'
+    COMMUNICATION = 'communication'
+    LEADERSHIP = 'leadership'
+    PROBLEM_SOLVING = 'problem_solving'
+    ADAPTABILITY = 'adaptability'
+    TIME_MANAGEMENT = 'time_management'
+
+    CATEGORY_CHOICES = [
+        (PROGRAMMING_LANGUAGE, 'Programming Language'),
+        (FRAMEWORKS, 'Frameworks and Libraries'),
+        (VERSION_CONTROL, 'Version Control Systems'),
+        (METHODOLOGIES, 'Development Methodologies'),
+        (DATA_ANALYSIS, 'Data Analysis and Analytics'),
+        (IT_NETWORKING, 'IT and Networking'),
+        (WEB_DEV_DESIGN, 'Web Development and Design'),
+        (AI_ML, 'Machine Learning and Artificial Intelligence'),
+        (DBMS, 'Database Management'),
+        (CLOUD_COMPUTING, 'Cloud Computing'),
+
+        (TEAM_MANAGEMENT, 'Team Management'),
+        (COMMUNICATION, 'Communication'),
+        (LEADERSHIP, 'Leadership'),
+        (PROBLEM_SOLVING, 'Problem Solving'),
+        (ADAPTABILITY, 'Adaptability'),
+        (TIME_MANAGEMENT, 'Time Management'),
+    ]
+
     unique_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(verbose_name='Name', max_length=100, unique=True)
     slug = models.SlugField(verbose_name='Slug', null=True, blank=True)
     skill_type = models.CharField(verbose_name='Type', max_length=10, choices=SKILL_TYPES)
+    category = models.CharField(verbose_name='Category', max_length=20, choices=CATEGORY_CHOICES)
     
-    # Attributes specific to technical skills
-    programming_languages = models.BooleanField(verbose_name='Programming Languages', default=False)
-    frameworks = models.BooleanField(verbose_name='Frameworks and Libraries', default=False)
-    version_control = models.BooleanField(verbose_name='Version Control Systems', default=False)
-    methodologies = models.BooleanField(verbose_name='Development Methodologies', default=False)
-    data_analysis = models.BooleanField(verbose_name='Data Analysis and Analytics', default=False)
-    it_networking = models.BooleanField(verbose_name='IT and Networking', default=False)
-    web_dev_design = models.BooleanField(verbose_name='Web Development and Design', default=False)
-    ai_ml = models.BooleanField(verbose_name='Machine Learning and Artificial Intelligence', default=False)
-    dbms = models.BooleanField(verbose_name='Database Management', default=False)
-    cloud_computing = models.BooleanField(verbose_name='Cloud Computing', default=False)
-
-    # Attributes specific to soft skills
-    communication = models.BooleanField(verbose_name='Communication', default=False)
-    teamwork = models.BooleanField(verbose_name='Teamwork', default=False)
-    leadership = models.BooleanField(verbose_name='Leadership', default=False)
-    problem_solving = models.BooleanField(verbose_name='Problem Solving', default=False)
-    adaptability = models.BooleanField(verbose_name='Adaptability', default=False)
-    time_management = models.BooleanField(verbose_name='Time Management', default=False)
-
     description = models.TextField(verbose_name='Description', blank=True, null=True)
 
     def save(self, *args, **kwargs):
