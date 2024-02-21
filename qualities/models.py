@@ -13,56 +13,86 @@ class Hobby(models.Model):
         super().save(*args, **kwargs)
 
 class Skill(models.Model):
-    TECHNICAL = 'technical'
-    SOFT = 'soft'
-    SKILL_TYPES = [
-        (TECHNICAL, 'Technical Skill'),
-        (SOFT, 'Soft Skill')
+    technical = 'technical'
+    soft = 'soft'
+    skill_types = [
+        (technical, 'Technical Skill'),
+        (soft, 'Soft Skill')
     ]
 
-    PROGRAMMING_LANGUAGE = 'programming_language'
-    FRAMEWORKS = 'frameworks'
-    VERSION_CONTROL = 'version_control'
-    METHODOLOGIES = 'methodologies'
-    DATA_ANALYSIS = 'data_analysis'
-    IT_NETWORKING = 'it_networking'
-    WEB_DEV_DESIGN = 'web_dev_design'
-    AI_ML = 'ai_ml'
-    DBMS = 'dbms'
-    CLOUD_COMPUTING = 'cloud_computing'
+    programming_language = 'programming_language'
+    frameworks = 'frameworks'
+    version_control = 'version_control'
+    methodologies = 'methodologies'
+    data_analysis = 'data_analysis'
+    it_networking = 'it_networking'
+    web_dev_design = 'web_dev_design'
+    ai_ml = 'ai_ml'
+    dbms = 'dbms'
+    cloud_computing = 'cloud_computing'
 
-    TEAM_MANAGEMENT = 'team_management'
-    COMMUNICATION = 'communication'
-    LEADERSHIP = 'leadership'
-    PROBLEM_SOLVING = 'problem_solving'
-    ADAPTABILITY = 'adaptability'
-    TIME_MANAGEMENT = 'time_management'
+    team_management = 'team_management'
+    communication = 'communication'
+    leadership = 'leadership'
+    problem_solving = 'problem_solving'
+    adaptability = 'adaptability'
+    time_management = 'time_management'
+    conflict_resolution = 'conflict_resolution'
+    teamwork = 'teamwork'
+    negotiation = 'negotiation'
+    creativity = 'creativity'
+    decision_making = 'decision_making'
+    mentoring = 'mentoring'
+    stress_management = 'stress_management'
 
-    CATEGORY_CHOICES = [
-        (PROGRAMMING_LANGUAGE, 'Programming Language'),
-        (FRAMEWORKS, 'Frameworks and Libraries'),
-        (VERSION_CONTROL, 'Version Control Systems'),
-        (METHODOLOGIES, 'Development Methodologies'),
-        (DATA_ANALYSIS, 'Data Analysis and Analytics'),
-        (IT_NETWORKING, 'IT and Networking'),
-        (WEB_DEV_DESIGN, 'Web Development and Design'),
-        (AI_ML, 'Machine Learning and Artificial Intelligence'),
-        (DBMS, 'Database Management'),
-        (CLOUD_COMPUTING, 'Cloud Computing'),
+    category_choices = [
+        (programming_language, 'Programming Language'),
+        (frameworks, 'Frameworks and Libraries'),
+        (version_control, 'Version Control Systems'),
+        (methodologies, 'Development Methodologies'),
+        (data_analysis, 'Data Analysis and Analytics'),
+        (it_networking, 'IT and Networking'),
+        (web_dev_design, 'Web Development and Design'),
+        (ai_ml, 'Machine Learning and Artificial Intelligence'),
+        (dbms, 'Database Management'),
+        (cloud_computing, 'Cloud Computing'),
 
-        (TEAM_MANAGEMENT, 'Team Management'),
-        (COMMUNICATION, 'Communication'),
-        (LEADERSHIP, 'Leadership'),
-        (PROBLEM_SOLVING, 'Problem Solving'),
-        (ADAPTABILITY, 'Adaptability'),
-        (TIME_MANAGEMENT, 'Time Management'),
+        (team_management, 'Team Management'),
+        (communication, 'Communication'),
+        (leadership, 'Leadership'),
+        (problem_solving, 'Problem Solving'),
+        (adaptability, 'Adaptability'),
+        (time_management, 'Time Management'),
+        (conflict_resolution, 'Conflict Resolution'),
+        (teamwork, 'Teamwork'),
+        (negotiation, 'Negotiation'),
+        (creativity, 'Creativity'),
+        (decision_making, 'Decision Making'),
+        (mentoring, 'Mentoring'),
+        (stress_management, 'Stress Management'),
+        
+        ('python', 'Python'),
+        ('java', 'Java'),
+        ('javascript', 'JavaScript'),
+        ('c++', 'C++'),
+        ('c#', 'C#'),
+        ('php', 'PHP'),
+        ('ruby', 'Ruby'),
+        ('go', 'Go'),
+        ('rust', 'Rust'),
+        ('kotlin', 'Kotlin'),
+        ('html/css', 'HTML/CSS'),
+        ('sql', 'SQL'),
+        ('r', 'R Programming Language'),
+        ('matlab', 'MATLAB'),
+        ('assembly', 'Assembly Language')
     ]
 
     unique_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(verbose_name='Name', max_length=100, unique=True)
     slug = models.SlugField(verbose_name='Slug', null=True, blank=True)
-    skill_type = models.CharField(verbose_name='Type', max_length=10, choices=SKILL_TYPES)
-    category = models.CharField(verbose_name='Category', max_length=20, choices=CATEGORY_CHOICES)
+    skill_type = models.CharField(verbose_name='Type', max_length=10, choices=skill_types)
+    category = models.CharField(verbose_name='Category', max_length=25, choices=category_choices)
     
     description = models.TextField(verbose_name='Description', blank=True, null=True)
 
