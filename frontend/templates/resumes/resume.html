@@ -7,5 +7,12 @@
 </head>
 <body>
     <h1>{{slug}}</h1>
+
+    <h2>Resume of user: {{user}}</h2>
+
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button class="dropdown-item" type="submit">Sign out</button>
+    </form>
 </body>
 </html>

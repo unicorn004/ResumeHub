@@ -23,6 +23,7 @@ def login_view(request):
             login(request, user)
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
+            return redirect('dashboard')
 
     else:
         form = AuthenticationForm()

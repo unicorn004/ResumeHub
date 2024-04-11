@@ -7,7 +7,10 @@ def homepage(request):
 
 @login_required(login_url = 'accounts:login')
 def dashboard(request):
-    return render(request, 'dashboard/dashboard.html')
+    context = {
+        'user': request.user
+    }
+    return render(request, 'dashboard/dashboard.html', context)
 
 def login_page(request):
     form = AuthenticationForm()
