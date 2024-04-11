@@ -27,12 +27,12 @@ admin.site.index_title = "Welcome to ResumeHub Admin"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage, name='homepage'),
+    path('', views.homepage, name='home'),
     path('dashboard', views.dashboard, name='dashboard'),
     
     # Resume specific paths
     path('resumes/', include('resumes.urls')),
 
     # Account specific paths
-    # path('accounts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
 ]

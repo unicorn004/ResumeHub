@@ -6,6 +6,12 @@
     <title>Dashboard</title>
 </head>
 <body>
-    Dashboard
+    <h1>Dashboard</h1>
+
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button class="dropdown-item" type="submit">Sign out</button>
+      </form>
+
 </body>
 </html>
