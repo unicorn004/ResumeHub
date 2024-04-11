@@ -29,7 +29,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
 ]
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('qualities.urls')),
-]
