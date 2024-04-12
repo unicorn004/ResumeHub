@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.urls import path, include
 
 # Customise admin headings
 admin.site.site_header = "ResumeHub Admin"
@@ -26,5 +27,12 @@ admin.site.index_title = "Welcome to ResumeHub Admin"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage, name='homepage'),
+    path('', views.homepage, name='home'),
+    path('dashboard', views.dashboard, name='dashboard'),
+    
+    # Resume specific paths
+    path('resumes/', include('resumes.urls')),
+
+    # Account specific paths
+    path('accounts/', include('accounts.urls')),
 ]

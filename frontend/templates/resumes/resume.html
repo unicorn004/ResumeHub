@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{slug}}</title>
+</head>
+<body>
+    <h1>{{slug}}</h1>
+
+    <h2>Resume of user: {{user}}</h2>
+
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button class="dropdown-item" type="submit">Sign out</button>
+    </form>
+</body>
+</html>
