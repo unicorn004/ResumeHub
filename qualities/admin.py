@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Hobby, Skill  # Import Skill model
 
-# Register your models here.
 @admin.register(Hobby)
 class HobbyAdmin(admin.ModelAdmin):
     list_display = ('unique_id','name','slug')
