@@ -43,6 +43,9 @@ class Education(models.Model):
     date_of_passing = models.DateTimeField(verbose_name='Date of Passing', null=True)
     pursuing = models.BooleanField(verbose_name='Pursuing', default=False)
 
+    def __str__(self):
+        return f'{self.education_level}-{self.institute}'
+
 
 class Hobby(models.Model):
     unique_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
