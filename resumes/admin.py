@@ -9,4 +9,4 @@ class ResumeAdmin(admin.ModelAdmin):
     #         kwargs["queryset"] = Education.objects.filter(candidate=request.user, institute='Sardar Patel Institute of Technology')
     #     return super(ResumeAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
 
-    list_display = ('candidate','description',)
+    list_display = ('candidate', 'name', 'description',)

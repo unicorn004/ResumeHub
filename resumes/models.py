@@ -12,6 +12,7 @@ class Resume(models.Model):
     Holds Resume created by the candidate.
     """
     unique_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    name = models.CharField(verbose_name='name', max_length=100, blank=True)
     candidate = models.ForeignKey(User, verbose_name='Candidate', on_delete=models.SET_NULL, blank=True, null=True)
     slug = models.SlugField(verbose_name='slug', null=True, blank=True)
     description = models.TextField(verbose_name='Description', null=True, blank=True)
