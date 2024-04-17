@@ -11,7 +11,9 @@ class Resume(models.Model):
     candidate = models.ForeignKey(User, verbose_name='Candidate', on_delete=models.SET_NULL, blank=True, null=True)
     description = models.TextField(verbose_name='Description', null=True, blank=True)
     summary = models.TextField(verbose_name='Summary', null=True, blank=True)
-    education = models.ManyToManyField(Education, verbose_name='Education')
+    
+    # Education level choices
+    education = models.SmallIntegerField('Educational qualifications (recent N, 0 for none)', default=0)
 #     skills = models.TextField(verbose_name='Skills')
 #     achievements = models.ManyToManyField(Achievement, verbose_name='Achievements')
 #     projects = models.ManyToManyField(Project, verbose_name='Projects')
