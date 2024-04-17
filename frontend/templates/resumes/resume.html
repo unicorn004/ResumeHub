@@ -1,18 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{slug}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{slug}}</title>
+  
 </head>
 <body>
-    <h1>{{slug}}</h1>
 
-    <h2>Resume of user: {{user}}</h2>
+      <title>[Your Name] Resume</title>
+      <style>
+        /* Add your CSS styles here */
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0; /* Remove default body margin */
+          /* Adjust following margins for A4-like size on printing */
+          /* You might need to fine-tune these values based on your printer settings */
+          margin: 2.5cm 3cm 2cm 3cm;
+        }
+        .container {
+          width: 700px; /* Adjust width as needed */
+          margin: 0 auto; /* Center horizontally */
+          padding: 20px;
+          border: 1px solid #ddd; /* Optional border for a resume look */
+        }
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+        .header h1 {
+          font-size: 24px;
+          margin: 0;
+        }
+        .contact-info {
+          text-align: right;
+        }
+        .section {
+          margin-bottom: 20px;
+        }
+        .section h2 {
+          font-size: 18px;
+          margin-bottom: 5px;
+        }
+        .experience, .education {
+          margin-top: 0; /* Remove default margin-top */
+        }
+        .experience li, .education li {
+          margin-bottom: 5px;
+        }
+      </style>
+    
+      <div class="container">
+        <header class="header">
+          <h1>[Your Name]</h1>
+          <div class="contact-info">
+            <p>[Your Contact Information (Email, Phone Number, Location)]</p>
+          </div>
+        </header>
+    
+        <section class="section">
+          <h2>Profile Summary</h2>
+          <p>[A brief overview of your skills and experience relevant to the job you're applying for]</p>
+        </section>
+    
+        <section class="section experience">
+          <h2>Employment History</h2>
+          <ul>
+            <li>
+              <h3>[Job Title]</h3>
+              <h4>[Company Name] - [Dates of Employment]</h4>
+              <ul>
+                <li>[Key responsibility or achievement]</li>
+                <li>[Key responsibility or achievement]</li>
+              </ul>
+            </li>
+            <li>
+              <h3>[Job Title]</h3>
+              <h4>[Company Name] - [Dates of Employment]</h4>
+              <ul>
+                <li>[Key responsibility or achievement]</li>
+                <li>[Key responsibility or achievement]</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+    
+        <section class="section education">
+          <h2>Education</h2>
+          <ul>
+            <li>
+              <h3>[Qualification Name]</h3>
+              <h4>[University/College Name] - [Dates of Attendance]</h4>
+              <p>[Optional: Mention relevant coursework or achievements]</p>
+            </li>
+            <li>
+              <h3>[Qualification Name]</h3>
+              <h4>[University/College Name] - [Dates of Attendance]</h4>
+              <p>[Optional: Mention relevant coursework or achievements]</p>
+            </li>
+          </ul>
+        </section>
+    
+        <section class="section skills">
+          <h2>Skills</h2>
+          <ul>
+            <li>[Skill 1]</li>
+            <li>[Skill 2]</li>
+          </ul>
+        </section>
+      </div>
+    
 
-    <form action="{% url 'accounts:logout' %}" method="post">
-        {% csrf_token %}
-        <button class="dropdown-item" type="submit">Sign out</button>
-    </form>
+  <h2>Resume of user: {{user}}</h2>
+
+  <form action="{% url 'accounts:logout' %}" method="post">
+    {% csrf_token %}
+    <button class="dropdown-item" type="submit">Sign out</button>
+  </form>
+
 </body>
 </html>
