@@ -23,3 +23,6 @@ class Company(models.Model):
     address = models.TextField(verbose_name='address')
     email = models.EmailField(verbose_name='email')
     contact_numbers = models.CharField(verbose_name='contact_numbers', blank=True, max_length=100)
+
+    def __str__(self):
+        return self.name

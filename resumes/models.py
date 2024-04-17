@@ -3,6 +3,7 @@ import uuid
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 from qualities.models import Education
+from companies.models import Company
 
 # Create your models here.
 # Resume 
@@ -23,6 +24,7 @@ class Resume(models.Model):
     include_address = models.BooleanField(verbose_name='Include Address', default=True)
     include_contact_number = models.BooleanField(verbose_name='Include Contact Number', default=True)
     include_email_id = models.BooleanField(verbose_name='Include Email ID', default=True)
+    target_company = models.ManyToManyField(Company, verbose_name='Target Companies')
 
 #     skills = models.TextField(verbose_name='Skills')
 #     achievements = models.ManyToManyField(Achievement, verbose_name='Achievements')
