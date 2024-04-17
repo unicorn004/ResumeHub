@@ -586,118 +586,15 @@
                 </tr>
               </thead>
               <tbody>
+                {% for resume in resumes %}
                 <tr>
-                  <td>1,001</td>
+                  <td>{{ forloop.counter }}</td>
                   <td>random</td>
                   <td>data</td>
                   <td>placeholder</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
+                  <td><a href="{% url 'resumes:resume' slug=resume.slug %}" class="custom-button">Click Here</a></td>
                 </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>placeholder</td>
-                  <td>irrelevant</td>
-                  <td>visual</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>data</td>
-                  <td>rich</td>
-                  <td>dashboard</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>information</td>
-                  <td>placeholder</td>
-                  <td>illustrative</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>text</td>
-                  <td>random</td>
-                  <td>layout</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>dashboard</td>
-                  <td>irrelevant</td>
-                  <td>text</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>dashboard</td>
-                  <td>illustrative</td>
-                  <td>rich</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>placeholder</td>
-                  <td>tabular</td>
-                  <td>information</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>random</td>
-                  <td>data</td>
-                  <td>placeholder</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>placeholder</td>
-                  <td>irrelevant</td>
-                  <td>visual</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>data</td>
-                  <td>rich</td>
-                  <td>dashboard</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>information</td>
-                  <td>placeholder</td>
-                  <td>illustrative</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>text</td>
-                  <td>placeholder</td>
-                  <td>layout</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>dashboard</td>
-                  <td>irrelevant</td>
-                  <td>text</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>dashboard</td>
-                  <td>illustrative</td>
-                  <td>rich</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>random</td>
-                  <td>tabular</td>
-                  <td>information</td>
-                  <td><button class="custom-button" onclick="window.location.href='/resumes'">Click Here</button></td>
-                </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
