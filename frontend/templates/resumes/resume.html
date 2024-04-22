@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{slug}}</title>
+  <title>{{resume.slug}}</title>
   
 </head>
 <body>
 
-      <title>[Your Name] Resume</title>
+      <title>{{ resume.candidate.get_full_name | upper }} Resume</title>
       <style>
         /* Add your CSS styles here */
         body {
@@ -54,7 +54,7 @@
     
       <div class="container">
         <header class="header">
-          <h1>[Your Name]</h1>
+          <h1>{{ resume.candidate | upper }} Resume</h1>
           <div class="contact-info">
             <p>[Your Contact Information (Email, Phone Number, Location)]</p>
           </div>
@@ -62,7 +62,7 @@
     
         <section class="section">
           <h2>Profile Summary</h2>
-          <p>[A brief overview of your skills and experience relevant to the job you're applying for]</p>
+          <p>{{resume.summary}}</p>
         </section>
     
         <section class="section experience">
