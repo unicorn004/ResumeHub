@@ -32,8 +32,9 @@ def resumes(request):
 
 @login_required(login_url = 'accounts:login')
 def resume(request, slug):
+    resume = Resume.objects.get(slug=slug)
+    print(resume.candidate)
     context = {
-        'user': request.user,
-        'slug':slug
+        'resume': resume
     }
     return render(request, 'resumes/resume.html', context)
