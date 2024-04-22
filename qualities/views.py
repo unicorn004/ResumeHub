@@ -1,34 +1,21 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from qualities.models import Skill
 from .forms import SkillForm
-from resumes.models import Resume
-from resumes.forms import ResumeForm
-
-
-def home(request):
-    return render(request, 'homepage/index.html')
-  # Assuming 'index.html' is your homepage template
-  
 
 @login_required(login_url='accounts:login')
-def add_skill(request, resume_slug):
-    resume = Resume.objects.get(slug=resume_slug)
-
+def skills(request):
     if request.method == 'POST':
         form = SkillForm(request.POST)
         if form.is_valid():
-            skill = form.save(commit=False)
-            skill.resume = resume
-            skill.save()
-            return redirect('resumes:resume', slug=resume.slug)
-
+            skill = form.save()
+            # Redirect to some view after saving the skill
+            return redirect(request, 'resumes/skills.html', context)
     else:
         form = SkillForm()
-
+    
     context = {
-        'resume': resume,
+        'user': request.user,
         'form': form
     }
-    return render(request, 'resumes/add_skill.html', context)
-
-
+    return render(request, 'resumes/skills.html', context)

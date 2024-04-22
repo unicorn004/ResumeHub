@@ -59,6 +59,7 @@ class Hobby(models.Model):
         super().save(*args, **kwargs)
 
 class Skill(models.Model):
+    
     technical = 'technical'
     soft = 'soft'
     SKILL_TYPES = [
@@ -144,15 +145,15 @@ class Skill(models.Model):
     slug = models.SlugField(verbose_name='Slug', null=True, blank=True)
     skill_type = models.CharField(verbose_name='Type', max_length=10, choices=SKILL_TYPES)
     category = models.CharField(verbose_name='Category', max_length=25, choices=CATEGORY_CHOICES, default=other)
-
     description = models.TextField(verbose_name='Description', blank=True, null=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name, allow_unicode=True)
         super().save(*args, **kwargs)
 
-    def _str_(self):
+    def __str__(self):
         return f'{self.name} {self.skill_type} {self.category}'
+
 
 
 # # Testimonial
