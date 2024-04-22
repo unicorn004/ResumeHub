@@ -6,11 +6,17 @@
     <title>Create Resume</title>
 </head>
 <body>
-    <h1>Create Resume for {{user}}</h1>
+    <h1>Create Resume for {{ user }}</h1>
     <form action="{% url 'resumes:resumes' %}" method="post">
         {% csrf_token %}
-        {{form}}
+        {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
+    
+    <!-- Add link for adding skills -->
+    <a href="{% url 'qualities:add_skill' resume.slug %}">Add Skill</a>
+
+
+
 </body>
 </html>

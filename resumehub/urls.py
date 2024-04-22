@@ -32,7 +32,7 @@ urlpatterns = [
     
     # Resume specific paths
     path('resumes/', include('resumes.urls')),
-
+    path('qualities/', include('qualities.urls')),
     # Account specific paths
     path('accounts/', include('accounts.urls')),
 ]
