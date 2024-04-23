@@ -7,3 +7,8 @@ urlpatterns = [
     path('', views.skills, name='home'),
     path('skills/', views.skills, name='skills'),
 ]
+
+
+urlpatterns = [
+    path('add_education/', views.add_education, name='add_education'),
+]
