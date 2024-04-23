@@ -52,7 +52,7 @@ def add_education(request):
     if form.is_valid():
         form.instance.candidate = request.user
         form.save()
-        return redirect('add_education')
+        return redirect('resumes:resumes')
     
     educations = Education.objects.filter(candidate=request.user)
     context = {
