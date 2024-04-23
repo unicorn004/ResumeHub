@@ -37,4 +37,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     
     path('qualities/', include('qualities.urls', namespace='qualities')),
+
+    path('profiles/', include('profiles.urls')),
 ]
