@@ -19,3 +19,23 @@ def skills(request):
         'form': form
     }
     return render(request, 'resumes/skills.html', context)
+
+
+# views.py in qualities app
+from .forms import EducationForm
+from .models import Education
+@login_required(login_url='accounts:login')
+def add_education(request):
+    form = EducationForm(request.POST or None)
+    if form.is_valid():
+        form.instance.candidate = request.user
+        form.save()
+        return redirect('add_education')
+    
+    educations = Education.objects.filter(candidate=request.user)
+    context = {
+        'user': request.user,
+        'form': form,
+        'educations': educations
+    }
+    return render(request, 'qualities/add_education.html', context)
