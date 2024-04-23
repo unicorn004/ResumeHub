@@ -35,4 +35,6 @@ urlpatterns = [
 
     # Account specific paths
     path('accounts/', include('accounts.urls')),
+    
+    path('qualities/', include('qualities.urls', namespace='qualities')),
 ]
