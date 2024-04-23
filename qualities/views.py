@@ -1,24 +1,46 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from qualities.models import Skill
-from .forms import SkillForm
+from .models import TechnicalSkill, SoftSkill
+from .forms import TechnicalSkillForm, SoftSkillForm
 
 @login_required(login_url='accounts:login')
-def skills(request):
+def technical_skills(request):
     if request.method == 'POST':
-        form = SkillForm(request.POST)
+        form = TechnicalSkillForm(request.POST)
         if form.is_valid():
-            skill = form.save()
+            skill = form.save(commit=False)
+            skill.candidate = request.user
+            skill.save()
             # Redirect to some view after saving the skill
-            return redirect(request, 'resumes/skills.html', context)
+            return redirect('technical_skills')
     else:
-        form = SkillForm()
+        form = TechnicalSkillForm()
     
     context = {
         'user': request.user,
         'form': form
     }
-    return render(request, 'resumes/skills.html', context)
+    return render(request, 'resumes/technical_skills.html', context)
+
+@login_required(login_url='accounts:login')
+def soft_skills(request):
+    if request.method == 'POST':
+        form = SoftSkillForm(request.POST)
+        if form.is_valid():
+            skill = form.save(commit=False)
+            skill.candidate = request.user
+            skill.save()
+            # Redirect to some view after saving the skill
+            return redirect('soft_skills')
+    else:
+        form = SoftSkillForm()
+    
+    context = {
+        'user': request.user,
+        'form': form
+    }
+    return render(request, 'resumes/soft_skills.html', context)
+
 
 
 # views.py in qualities app

@@ -39,4 +39,10 @@ urlpatterns = [
     path('qualities/', include('qualities.urls', namespace='qualities')),
 
     path('profiles/', include('profiles.urls')),
+    
+    path('technical_skills/',include('qualities.urls', namespace='technical_skills')),
+    
+    path('soft_skills/',include('qualities.urls', namespace='soft_skills')),
+    
+    
 ]
