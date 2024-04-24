@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Education</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.datepicker-year').datepicker({
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+    </script>
 </head>
 <body>
     <h1>Edit Education</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save Changes</button>
+        <label for="id_full_name">Full Name:</label>
+        <input type="text" id="id_full_name" name="full_name" value="{{ education.full_name }}" maxlength="100" required><br>
+
+        <label for="id_institute">Institute:</label>
+        <input type="text" id="id_institute" name="institute" value="{{ education.institute }}" maxlength="150" required><br>
+
+        <label for="id_date_of_passing">Date of Passing:</label>
+        <input type="text" id="id_date_of_passing" name="date_of_passing" value="{{ education.date_of_passing }}" class="datepicker-year" required><br>
+
+        <label for="id_additional_info">Additional Info:</label>
+        <textarea id="id_additional_info" name="additional_info" required>{{ education.additional_info }}</textarea><br>
+
+        <label for="id_pursuing">Pursuing:</label>
+        <input type="checkbox" id="id_pursuing" name="pursuing" {% if education.pursuing %}checked{% endif %}><br>
+
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
