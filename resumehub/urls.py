@@ -42,4 +42,7 @@ urlpatterns = [
     path('technical_skills/',include('qualities.urls', namespace='technical_skills')),
     
     path('soft_skills/',include('qualities.urls', namespace='soft_skills')),
+
+    path('profile.html', views.profile_view, name='profile_html'),
+    
 ]
