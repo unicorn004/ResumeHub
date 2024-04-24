@@ -26,6 +26,13 @@
         <label for="id_full_name">Full Name:</label>
         <input type="text" id="id_full_name" name="full_name" maxlength="100" required><br>
 
+        <label for="id_education_level">Education Level:</label>
+        <select id="id_education_level" name="education_level" required>
+            {% for choice in education_level_choices %}
+                <option value="{{ choice }}">{{ choice }}</option>
+            {% endfor %}
+        </select><br>
+
         <label for="id_institute">Institute:</label>
         <input type="text" id="id_institute" name="institute" maxlength="150" required><br>
 
