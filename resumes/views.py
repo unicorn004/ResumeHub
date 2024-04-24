@@ -19,6 +19,7 @@ def resumes(request):
         form = ResumeForm(request.POST)
         if form.is_valid():
             resume = form.save(commit=False)
+            resume.candidate = request.user
             resume.save()
             return redirect('resumes:resume', slug=resume.slug)
 
