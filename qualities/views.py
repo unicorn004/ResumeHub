@@ -37,9 +37,14 @@ def add_education(request):
 
     # Fetch the user's education entries
     user_educations = Education.objects.filter(candidate=request.user)
+    education_level_choices = [choice[1] for choice in Education.EDUCATION_LEVEL_CHOICES]
 
-    return render(request, 'qualities/add_education.html', {'form': form, 'user_educations': user_educations})
-
+    context = {
+        'form': form,
+        'education_level_choices': education_level_choices,
+        'user_educations': user_educations
+    }
+    return render(request, 'qualities/add_education.html', context)
 
 # views.py in the qualities app
 
