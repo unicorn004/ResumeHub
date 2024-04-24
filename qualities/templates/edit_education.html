@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Education</title>
+    <title>Edit Education</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- jQuery UI -->
@@ -20,36 +20,25 @@
     </script>
 </head>
 <body>
-    <h1>Add Education</h1>
+    <h1>Edit Education</h1>
     <form method="post">
         {% csrf_token %}
         <label for="id_full_name">Full Name:</label>
-        <input type="text" id="id_full_name" name="full_name" maxlength="100" required><br>
+        <input type="text" id="id_full_name" name="full_name" value="{{ education.full_name }}" maxlength="100" required><br>
 
         <label for="id_institute">Institute:</label>
-        <input type="text" id="id_institute" name="institute" maxlength="150" required><br>
+        <input type="text" id="id_institute" name="institute" value="{{ education.institute }}" maxlength="150" required><br>
 
         <label for="id_date_of_passing">Date of Passing:</label>
-        <input type="text" id="id_date_of_passing" name="date_of_passing" class="datepicker-year" required><br>
+        <input type="text" id="id_date_of_passing" name="date_of_passing" value="{{ education.date_of_passing }}" class="datepicker-year" required><br>
 
         <label for="id_additional_info">Additional Info:</label>
-        <textarea id="id_additional_info" name="additional_info" required></textarea><br>
+        <textarea id="id_additional_info" name="additional_info" required>{{ education.additional_info }}</textarea><br>
 
         <label for="id_pursuing">Pursuing:</label>
-        <input type="checkbox" id="id_pursuing" name="pursuing"><br>
+        <input type="checkbox" id="id_pursuing" name="pursuing" {% if education.pursuing %}checked{% endif %}><br>
 
         <button type="submit">Submit</button>
     </form>
-
-    <h2>Your Education Entries</h2>
-    <ul>
-        {% for education in user_educations %}
-            <li>{{ education.full_name }} - {{ education.institute }} - {{ education.date_of_passing }}</li>
-            <li><a href="{% url 'qualities:edit_education' education.id %}">Edit</a></li>
-            <li><a href="{% url 'qualities:delete_education' education.id %}">Delete</a></li>
-        {% empty %}
-            <li>No education entries found.</li>
-        {% endfor %}
-    </ul>
 </body>
 </html>
