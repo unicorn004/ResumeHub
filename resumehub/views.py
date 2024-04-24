@@ -15,3 +15,6 @@ def dashboard(request):
 def login_page(request):
     form = AuthenticationForm()
     return render(request, 'user_login/login.html', {'form': form})
+
+def profile_view(request):
+    return render(request, 'profile/profile.html')
