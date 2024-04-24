@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Resume</title>
+    <title>Add Technical Skills</title>
 </head>
 <body>
-    <h1>Create Resume for {{ user }}</h1>
+    <h1>Hi {{ user }}, add the technical skills you want to include in your resume</h1>
     <form action="{% url 'resumes:resumes' %}" method="post">
         {% csrf_token %}
-        {{form}}
-        <a href="{% url 'qualities:technical_skills' %}" class="btn btn-primary">Add New Technical Skill</a><br>
-        <a href="{% url 'qualities:soft_skills' %}" class="btn btn-primary">Add New Soft Skill</a><br>
-
+        {{ form }}
         <button type="submit">Submit</button>
     </form>
 </body>

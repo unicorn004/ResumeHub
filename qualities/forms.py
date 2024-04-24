@@ -1,14 +1,23 @@
 from django import forms
-from .models import Skill
-from .models import Education
+from .models import TechnicalSkill, SoftSkill, Education
 
-class SkillForm(forms.ModelForm):
+class TechnicalSkillForm(forms.ModelForm):
+    name = forms.CharField(label='Name', max_length=100)
+    description = forms.CharField(label='Description', widget=forms.Textarea(attrs={'rows': 4}))
+    category = forms.CharField(label='Category', max_length=25)
+
     class Meta:
-        model = Skill
-        fields = '__all__'
+        model = TechnicalSkill
+        exclude = ['unique_id']  # Exclude the unique_id field
 
-        # forms.py in qualities app
+class SoftSkillForm(forms.ModelForm):
+    name = forms.CharField(label='Name', max_length=100)
+    description = forms.CharField(label='Description', widget=forms.Textarea(attrs={'rows': 4}))
+    category = forms.CharField(label='Category', max_length=25)
 
+    class Meta:
+        model = SoftSkill
+        exclude = ['unique_id']  # Exclude the unique_id field
 
 #class EducationForm(forms.ModelForm):
     #class Meta:
