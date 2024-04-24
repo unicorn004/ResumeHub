@@ -8,9 +8,9 @@ def technical_skills(request):
     if request.method == 'POST':
         form = TechnicalSkillForm(request.POST)
         if form.is_valid():
-            skill = form.save(commit=False)
-            skill.candidate = request.user
-            skill.save()
+            technical_skills = form.save(commit=False)
+            technical_skills.candidate = request.user
+            technical_skills.save()
             # Redirect to some view after saving the skill
             return redirect('technical_skills')
     else:
@@ -27,9 +27,9 @@ def soft_skills(request):
     if request.method == 'POST':
         form = SoftSkillForm(request.POST)
         if form.is_valid():
-            skill = form.save(commit=False)
-            skill.candidate = request.user
-            skill.save()
+            technical_skills = form.save(commit=False)
+            technical_skills.candidate = request.user
+            technical_skills.save()
             # Redirect to some view after saving the skill
             return redirect('soft_skills')
     else:

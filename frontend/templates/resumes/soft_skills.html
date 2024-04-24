@@ -9,7 +9,7 @@
     <h1>Hi {{ user }}, add the soft skills you want to include in your resume</h1>
     <form action="{% url 'resumes:resumes' %}" method="post">
         {% csrf_token %}
-        {{ soft_form }}
+        {{ form }}
         <button type="submit">Submit</button>
     </form>
 </body>
