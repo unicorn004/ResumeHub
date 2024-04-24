@@ -17,3 +17,6 @@ def create_profile(request):
         form = UserProfileForm()
     return render(request, 'create_profile.html', {'form': form})
 
+def profile_view(request):
+    return render(request, 'profile.html')
+

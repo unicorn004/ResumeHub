@@ -11,7 +11,7 @@
       content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
     />
     <meta name="generator" content="Hugo 0.122.0" />
-    <title>Create Profile Template · Bootstrap v5.3</title>
+    <title>Dashboard Template · Bootstrap v5.3</title>
 
     <link
       rel="canonical"
@@ -564,7 +564,7 @@
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
-          <h1 class="h2">User Profile Form</h1>
+          <h1 class="h2">Profile</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary">
@@ -584,14 +584,72 @@
             </div>
           </div>
 
-          <div class="content">
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            <!-- Left Box -->
+            <div style="width: 48%; border: 1px solid #ccc; padding: 20px;">
+                <!-- User Information -->
+                <div style="text-align: center;">
+                    <img src="user_profile_picture.jpg" alt="User Profile Picture" style="width: 100px; height: 100px; border-radius: 50%;">
+                </div>
+                <div style="text-align: center; margin-top: 10px;">
+                    <h3>User Name</h3>
+                    <p>User Role</p>
+                    <p>User Address</p>
+                </div>
+            </div>
         
+            <!-- Right Box -->
+            <div style="width: 48%; border: 1px solid #ccc; padding: 20px;">
+                <!-- User Details -->
+                <div style="margin-bottom: 35px;">
+                    <label for="full_name">Full Name:</label>
+                    <span id="full_name_from_database">Tanmay</span>
+                </div>
+                <div style="margin-bottom: 35px;">
+                    <label for="email">Email:</label>
+                    <span id="email_from_database">tanmaysinkar2021@gmail.com</span>
+                </div>
+                <div style="margin-bottom: 35px;">
+                    <label for="phone">Phone:</label>
+                    <span id="phone_from_database">9999999999</span>
+                </div>
+                <div style="margin-bottom: 35px;">
+                    <label for="address">Address:</label>
+                    <span id="address_from_database">Mumbai</span>
+                </div>
+            </div>
+        
+            <!-- Additional Box Below Left Box -->
+<div style="width: 48%; border: 1px solid #ccc; padding: 20px; margin-top: 20px;">
+  <!-- Social Media Information -->
+  <div style="text-align: center;">
+      <!-- GitHub -->
+      <div style="display: flex; align-items: center; width: 200px; margin-bottom: 10px;">
+          <img src="github_logo.png" alt="GitHub Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+          <span style="flex-grow: 1;">GitHub: <span id="github_username">github_username</span></span>
+      </div>
+
+      <!-- Twitter -->
+      <div style="display: flex; align-items: center; width: 200px; margin-bottom: 10px;">
+          <img src="twitter_logo.png" alt="Twitter Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+          <span style="flex-grow: 1;">Twitter: <span id="twitter_username">twitter_username</span></span>
+      </div>
+
+      <!-- Instagram -->
+      <div style="display: flex; align-items: center; width: 200px; margin-bottom: 10px;">
+          <img src="instagram_logo.png" alt="Instagram Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+          <span style="flex-grow: 1;">Instagram: <span id="instagram_username">instagram_username</span></span>
+      </div>
+
+      <!-- Facebook -->
+      <div style="display: flex; align-items: center; width: 200px;">
+          <img src="facebook_logo.png" alt="Facebook Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+          <span style="flex-grow: 1;">Facebook: <span id="facebook_username">facebook_username</span></span>
+      </div>
+  </div>
+</div>
+                      
+
         </main>
       </div>
     </div>
@@ -601,7 +659,8 @@
       crossorigin="anonymous"
     ></script>
 
-    <script    
+    <script
+      
       integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp"
       crossorigin="anonymous"
     ></script>

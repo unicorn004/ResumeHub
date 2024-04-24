@@ -39,4 +39,6 @@ urlpatterns = [
     path('qualities/', include('qualities.urls', namespace='qualities')),
 
     path('profiles/', include('profiles.urls')),
+
+    path('profile.html', views.profile_view, name='profile_html'),
 ]
