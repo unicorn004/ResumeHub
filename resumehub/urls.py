@@ -46,5 +46,7 @@ urlpatterns = [
     path('profile.html', views.profile_view, name='profile_html'),
 
     path('dashboard.html', views.dashboard_view, name='dashboard_html'),
+
+    path('signup.html', views.signup_view, name='signup_html'),
     
 ]

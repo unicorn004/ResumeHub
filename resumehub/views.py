@@ -21,3 +21,6 @@ def profile_view(request):
 
 def dashboard_view(request):
     return render(request, 'dashboard/dashboard.html')
+
+def signup_view(request):
+    return render(request, 'accounts/signup.html')
