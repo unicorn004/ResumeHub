@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='home'),
     path('dashboard', views.dashboard, name='dashboard'),
-    
+    path('company',views.company,name='company'),
     # Resume specific paths
     path('resumes/', include('resumes.urls')),
 
