@@ -1,41 +1,106 @@
 {% extends 'boiler.html' %}
 {% block page_contents %}
 {% load static %}
+{% load widget_tweaks %}
 
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
-          >
-          <h1 class="h2">User Profile Form</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group me-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Share
-                </button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">
-                  Export
-                </button>
-              </div>
-              <button
-                type="button"
-                class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1"
-              >
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">User Profile Form</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
                 <svg class="bi"><use xlink:href="#calendar3"></use></svg>
                 This week
-              </button>
-            </div>
-          </div>
-
-          <div class="content">
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Submit</button>
-            </form>
+            </button>
         </div>
-        
-        </main>
-      </div>
     </div>
 
-    {% endblock %}
+    <div class="content">
+        <form method="post">
+            {% csrf_token %}
+            <div class="field-wrapper">
+                <label for="id_full_name">Full Name:</label>
+                {% render_field form.full_name class="form-control" %}
+            </div>
+
+            <div class="field-wrapper">
+                <label for="id_address">Address:</label>
+                {% render_field form.address class="form-control" %}
+            </div>
+
+            <div class="field-wrapper">
+                <label for="id_age">Age:</label>
+                {% render_field form.age class="form-control" %}
+            </div>
+
+            <div class="field-wrapper">
+                <label for="id_phone_number">Contact Number:</label>
+                {% render_field form.phone_number class="form-control" %}
+            </div>
+
+            <div class="field-wrapper">
+                <label for="id_email">Email Address:</label>
+                {% render_field form.email class="form-control" %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</main>
+
+<style>
+    /* Custom CSS styles for form fields */
+    .field-wrapper {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold; /* Bold label text */
+    }
+
+    .form-control {
+        border: 2px solid #3498db; /* Blue border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px; /* Padding for spacing */
+        font-size: 16px; /* Larger font size */
+        color: #333; /* Dark text color */
+        width: 100%; /* Full width */
+        box-sizing: border-box; /* Include padding in width */
+        transition: border-color 0.3s ease; /* Smooth transition */
+    }
+
+    .form-control:focus {
+        border-color: #ff6f61; /* Red border when focused */
+    }
+
+    .btn-primary {
+        background-color: #4caf50; /* Green background */
+        color: white; /* White text color */
+        padding: 10px 20px; /* Padding for button */
+        border: none; /* No border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Cursor style */
+        font-size: 16px; /* Font size */
+        transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    .btn-primary:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+
+    h1 {
+        font-family: 'Arial', sans-serif; /* Custom font family */
+        color: #4CAF50; /* Green text color */
+        text-align: center; /* Centered text */
+        margin-bottom: 30px; /* Bottom margin */
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Text shadow */
+    }
+
+    h1:hover {
+        color: #FF6F61; /* Red text color on hover */
+    }
+</style>
+{% endblock %}
