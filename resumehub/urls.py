@@ -44,5 +44,7 @@ urlpatterns = [
     path('soft_skills/',include('qualities.urls', namespace='soft_skills')),
 
     path('profile.html', views.profile_view, name='profile_html'),
+
+    path('dashboard.html', views.dashboard_view, name='dashboard_html'),
     
 ]

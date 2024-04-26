@@ -18,3 +18,6 @@ def login_page(request):
 
 def profile_view(request):
     return render(request, 'profile/profile.html')
+
+def dashboard_view(request):
+    return render(request, 'dashboard/dashboard.html')
