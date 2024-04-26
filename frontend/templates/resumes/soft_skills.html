@@ -1,16 +1,100 @@
+<!-- technical_skill_form.html -->
+
+{% extends 'boiler.html' %}
+{% block page_contents %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Soft Skills</title>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+        >
+        <h1 class="h2">Soft Skill Form</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                Share
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">
+                Export
+              </button>
+            </div>
+            <button
+              type="button"
+              class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1"
+            >
+              <svg class="bi"><use xlink:href="#calendar3"></use></svg>
+              This week
+            </button>
+          </div>
+        </div>
 </head>
 <body>
-    <h1>Hi {{ user }}, add the soft skills you want to include in your resume</h1>
-    <form action="{% url 'resumes:resumes' %}" method="post">
+
+    <style>
+        /* Custom CSS styles for form fields */
+        .name {
+            border: 2px solid #3498db; /* Blue border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding for spacing */
+            font-size: 16px; /* Larger font size */
+            color: #333; /* Dark text color */
+            width: 100%; /* Full width */
+            box-sizing: border-box; /* Include padding in width */
+            transition: border-color 0.3s ease; /* Smooth transition */
+            margin-bottom: 10px; /* Margin bottom for spacing */
+        }
+
+        input[type="text"]:focus, textarea:focus, input[type="checkbox"]:focus {
+            border-color: #ff6f61; /* Red border when focused */
+        }
+
+        button[type="submit"] {
+            background-color: #4caf50; /* Green background */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Padding for button */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Cursor style */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+    
+        button[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        h1 {
+            font-family: 'Arial', sans-serif; /* Custom font family */
+            color: #4CAF50; /* Green text color */
+            text-align: center; /* Centered text */
+            margin-bottom: 30px; /* Bottom margin */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Text shadow */
+            transition: color 0.3s ease; /* Smooth transition */
+        }
+
+        h1:hover {
+            color: #FF6F61; /* Red text color on hover */
+        }
+    </style>
+    <h1>Add you Soft Skills!</h1>
+    <form   method="post">
         {% csrf_token %}
-        {{ form }}
+        <div class="field-wrapper">
+            <label for="id_name">Name:</label><br>
+            {% render_field form.name class="name" %}
+        </div>
+        <div class="field-wrapper">
+            <label for="id_description">Description:</label><br>
+            {% render_field form.description class="name" %}
+        </div>
+        <div class="field-wrapper">
+            <label for="id_category">Category:</label><br>
+            {% render_field form.category class="name" %}
+        </div>
         <button type="submit">Submit</button>
     </form>
 </body>
 </html>
+{% endblock %}
