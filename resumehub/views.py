@@ -27,3 +27,6 @@ def signup_view(request):
 
 def create_profile(request):
     return render(request, 'profiles/create_profile.html')
+
+def company(request):
+    return render(request,'company/company.html')
