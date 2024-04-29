@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('companies/', include('companies.urls', namespace='companies')),
     path('', views.homepage, name='home'),
-    path('dashboard', views.dashboard, name='dashboard'),
+    path('dashboard/', views.dashboard, name='dashboard'),
    
     # Resume specific paths
     path('resumes/', include('resumes.urls')),
@@ -44,9 +44,7 @@ urlpatterns = [
     
     path('soft_skills/',include('qualities.urls', namespace='soft_skills')),
 
-    path('profile.html', views.profile_view, name='profile_html'),
-
-    # path('dashboard.html', views.dashboard_view, name='dashboard_html'),
+    path('profile/', views.profile_view, name='profile'),
 
     path('signup.html', views.signup_view, name='signup_html'),
 
