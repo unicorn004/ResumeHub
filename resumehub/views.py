@@ -19,8 +19,8 @@ def login_page(request):
 def profile_view(request):
     return render(request, 'profile/profile.html')
 
-def dashboard_view(request):
-    return render(request, 'dashboard/dashboard.html')
+#def dashboard_view(request):
+  #  return render(request, 'dashboard/dashboard.html')
 
 def signup_view(request):
     return render(request, 'accounts/signup.html')
@@ -29,4 +29,4 @@ def create_profile(request):
     return render(request, 'profiles/create_profile.html')
 
 def company(request):
-    return render(request,'company/company.html')
+    return render(request, 'company/company.html', {})
