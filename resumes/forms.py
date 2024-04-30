@@ -1,5 +1,6 @@
 from django import forms
-from .models import Resume, TechnicalSkill, SoftSkill , Company
+from .models import Resume, Company
+from qualities.models import TechnicalSkill,SoftSkill
 
 class ResumeForm(forms.ModelForm):
     technical_skills = forms.ModelMultipleChoiceField(
@@ -7,6 +8,7 @@ class ResumeForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         required=False  # Set to True if technical skills are mandatory
     )
+    
 
     soft_skills = forms.ModelMultipleChoiceField(
         queryset=SoftSkill.objects.all().order_by('category'),
