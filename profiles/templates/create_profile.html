@@ -46,6 +46,22 @@
                 {% render_field form.email class="form-control" %}
             </div>
 
+            <div class="field-wrapper">
+                <label for="id_linkedin_url">LinkedIn URL:</label>
+                {% render_field form.linkedin_url class="form-control" %}
+            </div>
+            
+            <div class="field-wrapper">
+                <label for="id_instagram_url">Instagram URL:</label>
+                {% render_field form.instagram_url class="form-control" %}
+            </div>
+            
+            <div class="field-wrapper">
+                <label for="id_facebook_url">Facebook URL:</label>
+                {% render_field form.facebook_url class="form-control" %}
+            </div>
+            
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
@@ -66,7 +82,7 @@
         border-radius: 5px; /* Rounded corners */
         padding: 10px; /* Padding for spacing */
         font-size: 16px; /* Larger font size */
-        color: #333; /* Dark text color */
+        color: white; /* Dark text color */
         width: 100%; /* Full width */
         box-sizing: border-box; /* Include padding in width */
         transition: border-color 0.3s ease; /* Smooth transition */
