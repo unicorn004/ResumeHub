@@ -54,7 +54,7 @@ def add_education(request):
             education = form.save(commit=False)
             education.candidate = request.user
             education.save()
-            return redirect('qualities:add_education')  # Redirect back to the same page
+            return redirect('/dashboard')  # Redirect back to the same page
     else:
         form = EducationForm()
 

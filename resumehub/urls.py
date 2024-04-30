@@ -52,4 +52,6 @@ urlpatterns = [
 
     path('company.html', views.company, name='company'),
     
+    path('create_resume/', views.create_resume_view, name='resume_form'),
+    
 ]
