@@ -46,7 +46,7 @@ urlpatterns = [
 
     path('profile/', views.profile_view, name='profile'),
 
-    path('signup.html', views.signup_view, name='signup_html'),
+    path('signup/', views.signup_view, name='signup'),
 
     path('create_profile/', views.create_profile, name='create_profile'),
 
