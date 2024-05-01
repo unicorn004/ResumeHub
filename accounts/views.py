@@ -3,18 +3,18 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 
-'''
+
 def signup_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('user_pages:dashboard')
+            return redirect('accounts/dashboard')
     else:
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form':form})
-'''
+
 
 def login_view(request):
     if request.method == 'POST':

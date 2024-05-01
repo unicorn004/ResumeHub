@@ -82,7 +82,7 @@
 </head>
 <body>
     <h1>Create Resume for {{ user }}</h1>
-    <form action="{% url 'create_profile' %}" method="post">
+    <form action="{% url 'resumes:resumes' %}" method="post">
         {% csrf_token %}
         <div class="field-wrapper">
             <!-- Name field -->
