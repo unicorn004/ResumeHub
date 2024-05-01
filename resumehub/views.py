@@ -33,10 +33,13 @@ def create_profile(request):
         form = UserProfileForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('qualities:add_education')  # Redirect to the dashboard after successful form submission
+            return redirect('qualities:add_education')
     else:
         form = UserProfileForm()
     return render(request, 'create_profile.html', {'form': form})
 
 def create_resume_view(request):
     return render(request, 'create_resume.html')
+
+def aboutus(request):
+    return render(request, 'homepage/aboutus.html', {})
