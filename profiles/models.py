@@ -9,6 +9,7 @@ import uuid
 class Profile(models.Model):
     unique_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    full_name = models.TextField(max_length=20, blank=True)
     contact_number = models.CharField(verbose_name='contact_number', max_length=10, blank=True)
     bio = models.TextField(max_length=500, blank=True)
     address = models.CharField(max_length=100, blank=True)
