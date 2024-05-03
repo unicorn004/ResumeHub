@@ -25,7 +25,7 @@ def signup_view(request):
 
 
 def company(request):
-    return render(request, 'company/company.html', {})
+    return render(request, 'company/company.html')
 
 @login_required(login_url='accounts:login')
 def create_profile(request):
@@ -43,3 +43,6 @@ def create_resume_view(request):
 
 def aboutus(request):
     return render(request, 'homepage/aboutus.html', {})
+
+def faq(request):
+    return render(request, 'homepage/faq.html', {})

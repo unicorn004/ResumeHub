@@ -50,10 +50,12 @@ urlpatterns = [
 
     path('create_profile/', views.create_profile, name='create_profile'),
 
-    path('company.html', views.company, name='company'),
+    path('company/', views.company, name='company'),
     
     path('create_resume/', views.create_resume_view, name='resume_form'),
 
     path('aboutus.html', views.aboutus, name='aboutus'),
+    path('dashboard/company/', views.company, name='company'),
+     path('faq.html', views.faq, name='faq'),
     
 ]
