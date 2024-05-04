@@ -1,0 +1,154 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <link rel="stylesheet" href="{% static "css/style.css"%}">
+  <title>FAQ Template | CodyHouse</title>
+</head>
+<body>
+<header class="cd-header flex flex-column flex-center">
+  <div class="text-component text-center">
+    <h1>FAQ's</h1>
+  </div>
+</header>
+
+<section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
+	<ul class="cd-faq__categories">
+		<li><a class="cd-faq__category cd-faq__category-selected truncate" href="#basics">ResumeHub</a></li>
+		<li><a class="cd-faq__category truncate" href="#mobile">How to</a></li>
+		<li><a class="cd-faq__category truncate" href="#account">Account</a></li>
+	</ul> <!-- cd-faq__categories -->
+
+	<div class="cd-faq__items">
+		<ul id="basics" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>ResumeHub</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>What is ResumeHub?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>ResumeHub is an online platform designed to streamline the process of creating, updating, and sharing resumes with various companies. It simplifies the task of organizing your educational qualifications, work experience, achievements, skills, and hobbies into a professional resume format.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>How does ResumeHub work?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>ResumeHub allows users to input their educational qualifications, skills etc into predefined templates. Users can then generate their resumes either as a link to share with companies or as an email attachment.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+		</ul> <!-- cd-faq__group -->
+
+		<ul id="mobile" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>How to</h2></li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>How to sign up?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>To sign up on ResumeHub, simply click on the "Sign Up" button on the homepage. Enter your email address and a secure password, then click on "Register" to create your account.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>How to make a Profile?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>After signing up on ResumeHub, you'll be directed to fill out your profile. This includes providing basic information about yourself, such as your name, contact details, and a brief summary of your professional background. Once you've completed your profile, you'll be prompted to enter your educational qualifications, where you can add details about your degrees, diplomas, and certifications. This step-by-step process ensures that your profile is comprehensive and tailored to showcase your qualifications and experiences effectively.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>How to make a Resume?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>To create a resume on ResumeHub, follow these simple steps:
+
+				<br>1. After completing the educational form, you'll be redirected to your dashboard.</br>
+				2. In the dashboard, you'll see a plus button next to your existing resumes. Click on this button to open the resume creation form.
+				<br>3. Fill out the form with details such as your work experience, achievements, skills, and any additional information you want to include.<br>
+				4. Once you've entered all the relevant information, review your resume to ensure it's accurate and comprehensive.
+				<br>5. Finally, click on the "Save" or "Create Resume" button to generate your resume.<br>
+				6. Your resume will now be accessible from your dashboard, where you can edit or download, it.
+				</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>How to apply for different companies?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>To apply for different companies on ResumeHub, follow these steps:
+
+				<br>1. Navigate to the "Companies" section in your dashboard.</br>
+				2. Browse through the list of available companies and select the one you're interested in.
+				<br>3. In the company description page, review the details provided about the company and the job opportunities they offer.</br>
+				4. If you're interested in applying, click on the "Apply" button provided next to the company description.
+				<br>5. You will be redirected to the resume form, where you can review and update your existing resume or create a new one tailored to the specific job opportunity.</br>
+				6. Fill out the resume form with relevant details and ensure it highlights your qualifications and experiences that are most relevant to the job.
+				<br>7. Once you've completed the resume form, submit it by clicking on the "Apply" or "Submit" button.</br>
+				8. Your application will be sent to the company for consideration, and you'll receive a confirmation message indicating that your application has been successfully submitted.
+				</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+		</ul> <!-- cd-faq__group -->
+
+		<ul id="account" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>Account</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>How do I change my password?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>To change your password on ResumeHub, log in to your account, go to your account settings, select "Change Password," enter your current password, then set a new password. Save your changes, and you're all set!</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>How do I delete my account?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>To delete your ResumeHub account, log in, access your account settings, find the option to delete your account, follow the prompts to confirm, and your account and associated data will be permanently removed.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>How do I change my account settings?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>To change your account settings on ResumeHub, log in to your account, locate the account settings section, make the desired changes such as email, password, or profile information, then save your changes.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>I forgot my password. How do I reset it?</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>Go to the login page and click "Forgot Password?" Enter your email, check your inbox for the reset link, and follow the instructions to create a new password.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+		</ul> <!-- cd-faq__group -->
+		<br></br>
+		<a href="/">Return</a>
+	</div> <!-- cd-faq__items -->
+	<a href="#0" class="cd-faq__close-panel text-replace">Close</a>
+  
+  <div class="cd-faq__overlay" aria-hidden="true"></div>
+</section> <!-- cd-faq -->
+<script src="{% static "js/util.js"%}"></script> <!-- util functions included in the CodyHouse framework -->
+<script src="{% static "js/main.js"%}"></script> 
+</body>
+</html>
