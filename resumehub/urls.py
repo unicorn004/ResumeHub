@@ -54,11 +54,11 @@ urlpatterns = [
     
     path('create_resume/', views.create_resume_view, name='resume_form'),
 
-<<<<<<< HEAD
+
     path('admin/', admin.site.urls),
     path('profiles/', include('profiles.urls')),
-=======
+
     path('aboutus.html', views.aboutus, name='aboutus'),
     
->>>>>>> 1399b100d852c2d691bdc97d821e06d9797051f8
+
 ]
