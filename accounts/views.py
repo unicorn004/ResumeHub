@@ -2,9 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
-from profiles.models import Profile
-from django.contrib.auth import authenticate  # Import both authenticate and login
-
+from django.urls import reverse_lazy
 
 
 def signup_view(request):
@@ -13,23 +11,14 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('profiles:create_profile')
+            return redirect(reverse_lazy('create_profile'))
     else:
         form = UserCreationForm()
-    return render(request, 'accounts/signup.html', {'form':form})
+    
+    # If the form is not valid, render the same form with errors
+    return render(request, 'accounts/signup.html', {'form': form})
+    
 
-
-
-
-
-
-
-
-
-
-from django.contrib.auth.forms import AuthenticationForm
-
-from django.urls import reverse_lazy  # Import for redirecting to named URLs
 
 def login_view(request):
     if request.method == 'POST':

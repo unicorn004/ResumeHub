@@ -1,7 +1,12 @@
 {% load static %}
 <!doctype html>
 <html lang="en" data-bs-theme="light">
-  <head><script src="{% static 'js/color-modes.js' %}"></script>
+  <head><script src="{% static 'js/color-modes.js' %}">
+     // Function to redirect to the form URL
+   // document.getElementById("applyButton").addEventListener("click", function() {
+        //window.location.href = "{% url 'resumes:resumes' %}?create";
+    //});
+  </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -209,7 +214,9 @@
             <div class="card-body">
               <p class="card-text">Google, a tech titan renowned for its innovation, leads the way in transforming digital experiences. From its ubiquitous search engine to cutting-edge cloud services, Google's relentless pursuit of excellence sets the standard for the industry.</p>
               <div class="d-flex justify-content-between align-items-center">
-               
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary applyButton" id="applyButton">Apply</button>
+              </div>
                 <small class="text-body-secondary"></small>
               </div>
             </div>
@@ -221,7 +228,9 @@
             <div class="card-body">
               <p class="card-text">Amazon stands as a global juggernaut in e-commerce, cloud computing, and digital streaming, continually reshaping the landscape of online retail and technology infrastructure.</p>
               <div class="d-flex justify-content-between align-items-center">
-                
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary applyButton" id="applyButton">Apply</button>
+              </div>
                 <small class="text-body-secondary"></small>
               </div>
             </div>
@@ -233,7 +242,10 @@
             <div class="card-body">
               <p class="card-text">Microsoft, a pioneer in personal computing, software development, and cloud services, remains a cornerstone of the tech industry, empowering businesses and individuals worldwide with innovative solutions.</p>
               <div class="d-flex justify-content-between align-items-center">
-               
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary applyButton">Apply</button>
+                 
+                </div>
                 <small class="text-body-secondary"></small>
               </div>
             </div>
@@ -246,7 +258,9 @@
             <div class="card-body">
               <p class="card-text">TCS (Tata Consultancy Services) epitomizes excellence in IT services, digital solutions, and consulting, driving digital transformation for businesses across various industries with its expertise and global reach.</p>
               <div class="d-flex justify-content-between align-items-center">
-               
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary applyButton" id="applyButton">Apply</button>
+              </div>
                 <small class="text-body-secondary"></small>
               </div>
             </div>
@@ -265,7 +279,9 @@
 
               </p>
               <div class="d-flex justify-content-between align-items-center">
-              
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary applyButton" id="applyButton">Apply</button>
+              </div>
                 <small class="text-body-secondary"></small>
               </div>
             </div>
@@ -278,8 +294,8 @@
               <p class="card-text">IBM, a trailblazer in computing and technology, continues to push the boundaries of innovation with its advancements in AI, cloud computing, and quantum computing, shaping the future of enterprise solutions and scientific research.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  
-                </div>
+                  <button type="button" class="btn btn-sm btn-outline-secondary applyButton" id="applyButton">Apply</button>
+              </div>
                 <small class="text-body-secondary"></small>
               </div>
             </div>
@@ -340,11 +356,24 @@
       <a href="#">Back to top</a>
     </p>
     <p class="mb-1">ResumeHub &copy;</p>
-    <p class="mb-0"><a href="/">Visit the homepage</a>
+    <p class="mb-0"><a href="/dashboard">Return to Dashboard</a>
   </div>
 </footer>
 <script src="{% static 'dist/css/bootstrap.min.css' %}"></script>
 <script src="{% static 'dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var applyButtons = document.querySelectorAll(".applyButton");
+    applyButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            window.location.href = "{% url 'resumes:resumes' %}?create";
+        });
+    });
+});
+
+</script>
+
 
     </body>
 </html>
