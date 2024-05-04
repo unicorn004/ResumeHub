@@ -82,7 +82,7 @@
 </head>
 <body>
     <h1>Create Resume for {{ user }}</h1>
-    <form action="{% url 'create_profile' %}" method="post">
+    <form action="{% url 'resumes:resumes' %}" method="post">
         {% csrf_token %}
         <div class="field-wrapper">
             <!-- Name field -->
@@ -106,7 +106,7 @@
         </div>
         <div class="field-wrapper">
             <!-- Technical Skills field -->
-            <label for="id_technical_skills">Technical Skills:</label><br>
+            <label for="id_technical_skills" >Technical Skills:</label><br>
             {% render_field form.technical_skills class="name" %}
         </div>
 	<a href="{% url 'qualities:technical_skills' %}" class="btn btn-primary">Add New Technical Skill</a><br><br>
