@@ -8,6 +8,6 @@ app_name = 'profiles'
 urlpatterns = [
     #path('create_profile.html', views.create_profile, name='create_profile'),
     # Other URL patterns for your project...
-
-    path('profile.html', views.profile_view, name='profile_html'),
+ path('create_profile/', views.create_profile, name='create_profile'),
+ #path('profile.html', views.profile_view, name='profile_html'),
 ]
