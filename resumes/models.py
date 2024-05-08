@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from qualities.models import Education
 from qualities.models import TechnicalSkill,SoftSkill
 from companies.models import Company
+from profiles.models import Profile 
 
 
 class TechnicalSkill(models.Model):
@@ -101,10 +102,15 @@ class Resume(models.Model):
     """
     Holds Resume created by the candidate.
     """
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null=True)
     unique_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(verbose_name='name', max_length=100, blank=True)
     candidate = models.ForeignKey(User, verbose_name='Candidate', on_delete=models.SET_NULL, blank=True, null=True)
     slug = models.SlugField(verbose_name='slug', null=True, blank=True)
+
+    def __str__(self):
+        return self.slug 
+    
     description = models.TextField(verbose_name='Description', null=True, blank=True)
     summary = models.TextField(verbose_name='Summary', null=True, blank=True)
     
