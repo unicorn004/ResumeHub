@@ -15,8 +15,8 @@ class Education(models.Model):
     middle_school = 'middle_school'
     high_school = 'high_school'
     higher_secondary =  'higher_secondary'
-    graduation = 'graduation'
-    post_graduation = 'post_graduation'
+    Graduation = 'Graduation'
+    PostGraduation = 'Post Graduation'
     doctorate = 'doctorate'
     post_doctorate = 'post_doctorate'
     diploma = 'diploma'
@@ -28,8 +28,8 @@ class Education(models.Model):
         (middle_school, 'middle_school'),
         (high_school, 'high_school'),
         (higher_secondary,  'higher_secondary'),
-        (graduation, 'graduation'),
-        (post_graduation, 'post_graduation'),
+        (Graduation, 'Graduation'),
+        (PostGraduation, 'Post Graduation'),
         (doctorate, 'doctorate'),
         (post_doctorate, 'post_doctorate'),
         (diploma, 'diploma'),
@@ -37,10 +37,10 @@ class Education(models.Model):
         (other, 'other'),
     ]
 
-    education_level = models.CharField(verbose_name='Level', max_length=20, choices=EDUCATION_LEVEL_CHOICES)
+    education_level = models.CharField(verbose_name='Level', max_length=50, choices=EDUCATION_LEVEL_CHOICES)
     institute = models.CharField(verbose_name='Institute', max_length=150,)
     additional_info = models.TextField(verbose_name='Additional Info', null=True, blank=True)
-    date_of_passing = models.DateTimeField(verbose_name='Date of Passing', null=True)
+    date_of_passing = models.DateField(verbose_name='Date of Passing', null=True)
     pursuing = models.BooleanField(verbose_name='Pursuing', default=False)
 
     def __str__(self):

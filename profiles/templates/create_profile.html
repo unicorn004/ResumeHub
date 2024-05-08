@@ -19,7 +19,7 @@
     </div>
 
     <div class="content">
-        <form method="post">
+        <form method="post" action="{% url 'qualities:add_education'%}">
             {% csrf_token %}
             <div class="field-wrapper">
                 <label for="id_full_name">Full Name:</label>
@@ -32,8 +32,8 @@
             </div>
 
             <div class="field-wrapper">
-                <label for="id_age">Age:</label>
-                {% render_field form.age class="form-control" %}
+                <label for="id_age">Birth Date:</label>
+                {% render_field form.birth_date class="form-control" %}
             </div>
 
             <div class="field-wrapper">
@@ -44,6 +44,11 @@
             <div class="field-wrapper">
                 <label for="id_email">Email Address:</label>
                 {% render_field form.email class="form-control" %}
+            </div>
+
+            <div class="field-wrapper">
+                <label for="id_bio">Bio</label>
+                {% render_field form.bio class="form-control" %}
             </div>
 
             <div class="field-wrapper">

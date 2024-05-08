@@ -33,13 +33,13 @@
 <body>
 
   <div class="container">
-    <h1>{{ resume.candidate.profile.full_name }}</h1>
+    <h3><strong>{{ resume.candidate.profile.full_name }}</strong></h3>
     <p>[Your Contact Information (Email, {{resume.candidate.profile.contact_number}}, Location)]</p>
 
-    <h2><strong>Profile Summary</strong></h2>
-    <p>[A brief overview of your skills and experience relevant to the job you're applying for]</p>
+    <h3><strong>Profile Summary</strong></h3>
+    <p>{{resume.summary}}</p>
 
-    <h2><strong>Employment History</strong></h2>
+    <h3><strong>Employment History</strong></h3>
     <ul>
       <li>
         <h3>[Job Title]</h3>
@@ -59,35 +59,52 @@
       </li>
     </ul>
 
-    <h2><strong>Education</strong></h2>
+    <h3><strong>Education</strong></h3>
     <ul>
+      {% for edu in edu_qualifications %}
       <li>
+        <h5>{{edu.education_level}}</h5>
+        <h5>{{edu.institute}} - {{edu.date_of_passing}}</h5>
+       <!-- <p>[Optional: Mention relevant coursework or achievements]</p>-->
+      </li>
+      <!--<li>
         <h3>[Qualification Name]</h3>
         <h4>[University/College Name] - [Dates of Attendance]</h4>
         <p>[Optional: Mention relevant coursework or achievements]</p>
-      </li>
-      <li>
-        <h3>[Qualification Name]</h3>
-        <h4>[University/College Name] - [Dates of Attendance]</h4>
-        <p>[Optional: Mention relevant coursework or achievements]</p>
-      </li>
+      </li>-->
+      {% endfor %}
     </ul>
 
-    <h2><strong>Skills</strong></h2>
+    <h3><strong>Technical Skills</strong></h3>
     <ul>
-      <li>{{ resume.technical_skills }}</li>
-      <li>[Skill 2]</li>
+      {% for t in t_skills %}
+      <li>{{ t.name }}</li>
+    <!--  <li>[Skill 2]</li>-->
+      {% endfor %}
+    </ul>
+
+    <h3><strong>Soft Skills</strong></h3>
+    <ul>
+      {% for s in s_skills %}
+      <li>{{ s.name }}</li>
+    <!--  <li>[Skill 2]</li>-->
+      {% endfor %}
     </ul>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <h2>Resume of user: {{user}}</h2>
 
-  <form action="{% url 'accounts:logout' %}" method="post">
+
+ <!-- <form action="{% url 'accounts:logout' %}" method="post">
     {% csrf_token %}
     <button class="dropdown-item" type="submit">Sign out</button>
-  </form>
+  </form>-->
+  <button onclick="window.print()" class="btn btn-primary">Print Resume</button>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
