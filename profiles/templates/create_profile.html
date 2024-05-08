@@ -32,7 +32,7 @@
             </div>
 
             <div class="field-wrapper">
-                <label for="id_age">Birth Date:</label>
+                <label for="id_birth_date">Birth Date:</label>
                 {% render_field form.birth_date class="form-control" %}
             </div>
 
@@ -46,8 +46,34 @@
                 {% render_field form.email class="form-control" %}
             </div>
 
+            <!-- New Fields -->
             <div class="field-wrapper">
-                <label for="id_bio">Bio</label>
+                <label for="id_job_title">Job Title:</label>
+                {% render_field form.job_title class="form-control" %}
+            </div>
+            
+            <div class="field-wrapper">
+                <label for="id_previous_company">Previous Company:</label>
+                {% render_field form.previous_company class="form-control" %}
+            </div>
+            
+            <div class="field-wrapper">
+                <label for="id_start_date">Start Date:</label>
+                {% render_field form.start_date class="form-control" %}
+            </div>
+            
+            <div class="field-wrapper">
+                <label for="id_end_date">End Date:</label>
+                {% render_field form.end_date class="form-control" %}
+            </div>
+            
+            <div class="field-wrapper">
+                <label for="id_key_responsibilities">Key Responsibilities:</label>
+                {% render_field form.key_responsibilities class="form-control" %}
+            </div>
+
+            <div class="field-wrapper">
+                <label for="id_bio">Bio:</label>
                 {% render_field form.bio class="form-control" %}
             </div>
 
@@ -65,7 +91,7 @@
                 <label for="id_facebook_url">Facebook URL:</label>
                 {% render_field form.facebook_url class="form-control" %}
             </div>
-            
+
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

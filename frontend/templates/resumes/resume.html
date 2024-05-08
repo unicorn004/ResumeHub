@@ -42,21 +42,20 @@
     <h3><strong>Employment History</strong></h3>
     <ul>
       <li>
-        <h3>[Job Title]</h3>
+        <h3>{{resume.candidate.profile.job_title}}</h3>
+        <h4>{{resume.candidate.profile.previous_company}} - {{resume.candidate.profile.start_date}}-{{resume.candidate.profile.end_date}}</h4>
+        <ul>
+          <li>{{resume.candidate.profile.key_responsibilities}}</li>
+        </ul>
+      </li>
+      <!--<li>
+       <!-- <h3>[Job Title]</h3>
         <h4>[Company Name] - [Dates of Employment]</h4>
         <ul>
           <li>[Key responsibility or achievement]</li>
           <li>[Key responsibility or achievement]</li>
         </ul>
-      </li>
-      <li>
-        <h3>[Job Title]</h3>
-        <h4>[Company Name] - [Dates of Employment]</h4>
-        <ul>
-          <li>[Key responsibility or achievement]</li>
-          <li>[Key responsibility or achievement]</li>
-        </ul>
-      </li>
+      </li>-->
     </ul>
 
     <h3><strong>Education</strong></h3>
