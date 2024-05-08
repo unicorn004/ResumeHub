@@ -37,7 +37,7 @@ class Education(models.Model):
         (other, 'other'),
     ]
 
-    education_level = models.CharField(verbose_name='Level', max_length=20, choices=EDUCATION_LEVEL_CHOICES)
+    education_level = models.CharField(verbose_name='Level', max_length=50, choices=EDUCATION_LEVEL_CHOICES)
     institute = models.CharField(verbose_name='Institute', max_length=150,)
     additional_info = models.TextField(verbose_name='Additional Info', null=True, blank=True)
     date_of_passing = models.DateTimeField(verbose_name='Date of Passing', null=True)

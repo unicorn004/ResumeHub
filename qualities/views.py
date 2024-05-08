@@ -41,40 +41,39 @@ def soft_skills(request):
     }
     return render(request, 'resumes/soft_skills.html', context)
 
-    return render(request, 'resumes/skills.html', context)
-# views.py in the qualities app
+
 
 from .forms import EducationForm
 from .models import Education
+from django.forms.models import model_to_dict
+
+
 @login_required(login_url='accounts:login')
 def add_education(request):
-    if request.method == 'POST':
-        form = EducationForm(request.POST)
-        if form.is_valid():
-            education = form.save(commit=False)
-            education.candidate = request.user
-            education.save()
-            return redirect('/dashboard')  # Redirect back to the same page
-    else:
-        form = EducationForm()
+    user_education, created = Education.objects.get_or_create(candidate=request.user)
 
-    # Fetch the user's education entries
-    user_educations = Education.objects.filter(candidate=request.user)
-    education_level_choices = [choice[1] for choice in Education.EDUCATION_LEVEL_CHOICES]
+    if request.method == 'POST':
+      form = EducationForm(request.POST, instance=user_education)
+      if form.is_valid():
+           form.save()  # Save the form data to the database
+           return redirect('dashboard')  # Redirect back to the dashboard after saving
+
+    else:
+        # No POST data, instantiate the form with the existing or newly created instance
+        form = EducationForm(instance=user_education)
 
     context = {
         'form': form,
-        'education_level_choices': education_level_choices,
-        'user_educations': user_educations
     }
     return render(request, 'qualities/add_education.html', context)
+
 
 # views.py in the qualities app
 
 from django.shortcuts import get_object_or_404
-
+@login_required(login_url='accounts:login')
 def edit_education(request, education_id):
-    education_entry = get_object_or_404(Education, id=education_id)
+    education_entry = get_object_or_404(Education, id=education_id, candidate=request.user)
     if request.method == 'POST':
         form = EducationForm(request.POST, instance=education_entry)
         if form.is_valid():
@@ -86,7 +85,7 @@ def edit_education(request, education_id):
     context = {
         'form': form,
     }
-    return render(request, 'edit_education.html', context)
+    return render(request, 'qualities/edit_education.html', context)
 
 def delete_education(request, education_id):
     education_entry = get_object_or_404(Education, id=education_id)

@@ -61,9 +61,10 @@
 
     <h2><strong>Education</strong></h2>
     <ul>
+      {% for edu in edu_qualifications %}
       <li>
-        <h3>[Qualification Name]</h3>
-        <h4>[University/College Name] - [Dates of Attendance]</h4>
+        <h3>{{edu.education_level}}</h3>
+        <h4>{{edu.institute}} - {{edu.date_of_passing}}</h4>
         <p>[Optional: Mention relevant coursework or achievements]</p>
       </li>
       <li>
@@ -71,6 +72,7 @@
         <h4>[University/College Name] - [Dates of Attendance]</h4>
         <p>[Optional: Mention relevant coursework or achievements]</p>
       </li>
+      {% endfor %}
     </ul>
 
     <h2><strong>Skills</strong></h2>
