@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from resumes.models import Resume
 from .forms import ResumeForm
 from profiles.models import Profile
-from qualities.models import Education
+from qualities.models import Education,TechnicalSkill,SoftSkill
 # Create your views here.
 
 @login_required(login_url = 'accounts:login')
@@ -36,10 +36,21 @@ def resume(request, slug):
     # Assuming 'slug' is used to identify the user whose profile to display
     resume = get_object_or_404(Resume, slug=slug) # Fetch the profile based on the user's username
     edu_qualifications = Education.objects.filter(candidate=resume.candidate)
+    t_skills=TechnicalSkill.objects.filter(candidate=resume.candidate)
+    s_skills=SoftSkill.objects.filter(candidate=resume.candidate)
     for edu in edu_qualifications:
         print(edu)
+
+    for t in t_skills:
+        print(t)
+
+    for s in s_skills:
+        print(s)
+            
     context = {
         'resume': resume,
         'edu_qualifications':edu_qualifications,
+        't_skills':t_skills,
+        's_skills':s_skills,
     }
     return render(request, 'resumes/resume.html', context)
