@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from resumes.models import Resume
 from .forms import ResumeForm
+from profiles.models import Profile
 
 # Create your views here.
 
@@ -31,11 +32,11 @@ def resumes(request):
     }
     return render(request, 'resumes/resumes.html', context)
 
-@login_required(login_url = 'accounts:login')
 def resume(request, slug):
-    resume = Resume.objects.get(slug=slug)
-    print(resume.candidate)
+    # Assuming 'slug' is used to identify the user whose profile to display
+    resume = get_object_or_404(Resume, slug=slug) # Fetch the profile based on the user's username
+    
     context = {
-        'resume': resume
+        'resume': resume,
     }
     return render(request, 'resumes/resume.html', context)

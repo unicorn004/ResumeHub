@@ -18,6 +18,9 @@ class Profile(models.Model):
     instagram_url = models.URLField(max_length=200, blank=True)  # Instagram URL
     facebook_url = models.URLField(max_length=200, blank=True) # Facebook URL
 
+    def __str__(self):
+        return self.full_name 
+    
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
